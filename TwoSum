@@ -1,4 +1,4 @@
-Problem Statement: [Link Text](https://leetcode.com/problems/two-sum/description/)
+Problem Statement: [Google](https://leetcode.com/problems/two-sum/description/)
 
 Approach
 Create a Map.(store the array element as a key and its index as a value)
