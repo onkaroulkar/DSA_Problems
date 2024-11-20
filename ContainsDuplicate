@@ -1,0 +1,27 @@
+Problem Statement: https://leetcode.com/problems/contains-duplicate/description/
+Approach
+Create set data structure.
+Traverse the array.
+Check element is present in a set or not if present then retun true, otherwise add element in the set.
+If no element present in a set then return false.
+Complexity
+
+Time complexity:
+O(n)
+
+Space complexity:
+O(n)
+
+Code
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for(int i=0; i<nums.length; i++){
+            if(set.contains(nums[i])){
+                return true;
+            }
+            set.add(nums[i]);
+        }
+        return false;
+    }
+}
