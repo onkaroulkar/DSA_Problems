@@ -1,0 +1,32 @@
+# Approach
+1. Define the two pointers right and left. left pointer is at position '0' and right pointer is at position '1'.
+2. Initially max profit is '0'.
+3. Iterate the array, if left price is smaller then the right price then calculate the max profit and shift the right pointer towards right.
+4. If left price is not smaller then the right then, assign the right pointer value to the left and shift right pointer one step towards right.
+
+# Complexity
+- Time complexity:O(n)
+
+- Space complexity:O(1)
+
+# Code
+```java []
+class Solution {
+    public int maxProfit(int[] prices) {
+        int left =0;
+        int right =1;
+        int maxProfit =0;
+        for(int i =0; i<prices.length -1; i++){
+               if(prices[left] < prices[right]){
+                    int max = prices[right] - prices[left];
+                    maxProfit = Math.max(max,maxProfit);
+                    right++;
+                }else{
+                    left = right;
+                    right++;
+               }
+        }
+        return maxProfit;
+    }
+}
+```
