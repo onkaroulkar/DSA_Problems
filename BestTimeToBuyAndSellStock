@@ -1,3 +1,4 @@
+Problem Statement Link- https://leetcode.com/problems/two-sum/submissions/1457063552
 # Approach
 1. Define the two pointers right and left. left pointer is at position '0' and right pointer is at position '1'.
 2. Initially max profit is '0'.
