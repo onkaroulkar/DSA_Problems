@@ -1,0 +1,27 @@
+Problem Statement: [Link Text](https://leetcode.com/problems/two-sum/description/)
+
+Approach
+Create a Map.(store the array element as a key and its index as a value)
+Traverse the array and calculate the diffrance between the target and array element.
+If the diffarance is present as key in the map then return map value and array index.
+Otherwiese add the array element and its index in the map.
+If above condition not match then return array of index[0,0].
+
+Time Complexity:O(n)
+Space complexity:O(n)
+
+Code
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int i=0; i<nums.length; i++){
+            int diff = target - nums[i];
+            if(map.containsKey(diff)){
+                return new int[]{map.get(diff),i};
+            }
+            map.put(nums[i],i);
+        }
+        return new int[]{0,0};
+    }
+}
