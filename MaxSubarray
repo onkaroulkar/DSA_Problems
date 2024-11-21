@@ -1,0 +1,29 @@
+# Problem Statement: https://leetcode.com/problems/maximum-subarray/description/
+# Approach
+1. Create two variable 'maxSum' and 'currSum'.
+2. Initial value of the maxSum is the first element of an array and initial value of the currSum is 0.
+3. Iterate an array, if array element is negative then neglect it. Make currSum value '0'.
+4. If array element is positive then add the it in currSum variable.
+5. Compare the maxSum and currSum variables and stores the maximum value into maxSum.
+6. return maxSum.
+
+- Time Compelxity:O(n)
+- Space complexity:O(1)
+
+# Code
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int maxSum = nums[0];
+        int currSum = 0;
+        for(int i=0; i<nums.length; i++){
+            if(currSum < 0){
+                currSum = 0;
+            }
+            currSum += nums[i];
+            maxSum = Math.max(maxSum,currSum);
+        }
+        return maxSum;
+    }
+}
+```
