@@ -1,0 +1,32 @@
+Problem Statement: https://leetcode.com/problems/product-of-array-except-self/description/
+# Approach
+1. Create a result array with size same as nums array, also create variables prefix and postfix with initial value as 1.
+2. Iterate the array, store the prefix value into the result array, update the prefix value by multiplying the array element in each iteration and store into the result array.
+3. Iterate the nums array form end to the start,multiply last value of the result array with the postfix and store it in result array at the index,updat the postfix value by multiplying the postfix value with nums array ith element in each iteration.
+4. return the result array.
+
+# Complexity
+- Time complexity:O(n)
+
+- Space complexity:O(1)
+
+# Code
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int result[] = new int[n];
+        int prefix = 1;
+        int postfix = 1;
+
+        for(int i=0; i<nums.length; i++){
+            result[i] = prefix;
+            prefix *= nums[i];
+        }
+
+        for(int i=nums.length-1; i>=0; i--){
+            result[i] = result[i] * postfix;
+            postfix *= nums[i];
+        }
+        return result;
+    }
+}
