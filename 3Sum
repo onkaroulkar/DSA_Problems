@@ -1,0 +1,48 @@
+Problem Statement: https://leetcode.com/problems/3sum/description/
+# Approach
+1. Sort the given array.
+2. Loop over the array and fix the first element of the possible triplet, arr[i].
+3. Then fix two pointers, one at i + 1 and the other at n – 1. And look at the sum,
+4. If the sum is smaller than the required sum, increment the first pointer.
+Else, If the sum is bigger, Decrease the end pointer to reduce the sum.
+Else, if the sum of elements at two-pointer is equal to given sum then print the triplet and break.
+
+# Complexity
+- Time complexity:O(n^2)
+- Space complexity:o(n)
+
+# Code
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> ans = new ArrayList<>();
+        for(int i=0; i<nums.length-1; i++){
+            if(i>0 && nums[i]==nums[i-1]){
+                continue;
+            }
+            int l=i+1;
+            int r=nums.length-1;
+            while(l<r){
+                int sum = nums[i] + nums[l] + nums[r];
+                if(sum<0){
+                    l++;
+                }else if(sum>0){
+                    r--;
+                }else{
+                    ans.add(Arrays.asList(nums[i],nums[l],nums[r]));
+                    while(l<r && nums[l]==nums[l+1]){
+                        l++;
+                    }
+
+                    while (l < r && nums[r] == nums[r - 1]) {
+                        r--;
+                    }
+
+                    l++;
+                    r--;
+                }
+            }
+        }
+        return ans;
+    }
+}
